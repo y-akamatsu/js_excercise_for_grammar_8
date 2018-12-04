@@ -77,14 +77,14 @@ function showTodos() {
   console.log('現在持っているのタスク一覧');
   console.log('========================');
 
-  if(todos.length > 0) {
+  if (todos.length > 0) {
     todos.forEach((todo, index) => {
       console.log(index + ':' + todo);
     });
-    } else {
+  } else {
     console.log('タスク無し');
-    }
   }
+}
 /**
  * 「追加」が入力されたときに実行される関数「createTodo関数」を用意する
  *    - promptを使って追加するタスクを入力できるようにする
@@ -96,14 +96,15 @@ function showTodos() {
  *      3. showTodos関数を実行して、現在保持しているタスク一覧を表示する
  */
 // ここにcreateTodo関数を作る
-function createTodo(){
+function createTodo() {
   const todo = prompt('タスクを入力してください');
-}if (todo) {
-  todos.push(todo);
-  alert('新しいタスクを追加しました');
-  showTodos();
-} else {
-  alert('何も有力されていないためスキップします');
+  if (todo) {
+    todos.push(todo);
+    alert('新しいタスクを追加しました');
+    showTodos();
+  } else {
+    alert('何も有力されていないためスキップします');
+  }
 }
 /**
  * 「削除」が入力されたときに実行される関数
@@ -126,14 +127,14 @@ function createTodo(){
  *      3. showTodos関数を実行して、現在保持しているタスク一覧を表示する
  */
 // ここにdeleteTodo関数を作る
-function deleteTodo(){
-  const numberString = prompt('削除するタスク番後を追加してください');
+function deleteTodo() {
+  const numberString = prompt('削除するタスクの番号を指定してください');
   const parsedNumber = parseInt(numberString, 10);
-  if (isNaN(pasedNumber) || parsedNumber >= todos.length || parsedNUmber < 0){
-    alert('不正な値の為スキップします');
+  if (isNaN(parsedNumber) || parsedNumber >= todos.length || parsedNumber < 0) {
+    alert('不正な値のためスキップします');
   } else {
-    const deleteTodos = todos.splice(pasednumber, 1);
-    alert(deleteTodos[0] + '削除しました。');
+    const deletedTodos = todos.splice(parsedNumber, 1);
+    alert(deletedTodos[0] + 'を削除しました。');
     showTodos();
   }
 }
